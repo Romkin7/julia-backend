@@ -11,8 +11,8 @@ const { dbQuery } = require("./dbConnection");
 dbQuery();
 
 app.use(cors());
-app.set("port", 8080);
-app.set("ip", "0.0.0.0");
+app.set("port", process.env.PORT);
+app.set("ip", process.env.IP);
 app.use(logger('dev'));
 
 app.use(express.json());
@@ -28,7 +28,7 @@ app.get("*", (req, res) => {
 
 app.use(errorHandler);
 
-app.listen(process.env.PORT || app.get("port"), app.get("ip"), (err) => {
+app.listen(app.get("port"), app.get("ip"), (err) => {
   if (err) {
     throw Error;
   } else {
