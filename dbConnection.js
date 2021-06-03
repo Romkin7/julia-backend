@@ -1,6 +1,4 @@
-require("dotenv").config();
-
-const { Pool, Client } = require("pg");
+const { Pool } = require("pg");
 
 function connect() {
   const pool = new Pool({
